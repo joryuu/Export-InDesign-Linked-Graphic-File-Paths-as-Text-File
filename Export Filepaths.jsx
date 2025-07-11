@@ -14,13 +14,18 @@
         links = doc.links,
         paths = [];
 
-    // 1) Gather all external filePaths
+    // 1) Collect only missing link filePaths
     for (var i = 0; i < links.length; i++) {
         var ln = links[i];
-        if (ln.status === LinkStatus.LINK_EMBEDDED) continue;
+        if (ln.status !== LinkStatus.LINK_MISSING) {
+            continue; // skip any link that isn’t missing
+        }
+        // missing links still have a filePath property
         try {
             paths.push(ln.filePath);
-        } catch (_) {}
+        } catch (_) {
+            // just in case, skip if filePath is inaccessible
+        }
     }
 
     if (!paths.length) {
