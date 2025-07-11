@@ -1,4 +1,4 @@
-# Export Linked File Paths as Text File
+# Export Filepaths for Broken Linked Files 
 ## Overview
 When working with InDesign documents stored in a cloud account, it’s all too easy to end up with a file full of broken links—especially if the folders containing your images haven’t finished syncing locally. Instead of manually digging through the Links panel and right-clicking each link to “Copy Full Path,” this script automates the entire process. With one click it:
 
